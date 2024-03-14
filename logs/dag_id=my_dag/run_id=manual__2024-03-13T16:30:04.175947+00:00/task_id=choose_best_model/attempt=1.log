@@ -1,0 +1,29 @@
+[2024-03-13T16:30:07.362+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.choose_best_model manual__2024-03-13T16:30:04.175947+00:00 [queued]>
+[2024-03-13T16:30:07.369+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.choose_best_model manual__2024-03-13T16:30:04.175947+00:00 [queued]>
+[2024-03-13T16:30:07.369+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-13T16:30:07.379+0000] {taskinstance.py:2217} INFO - Executing <Task(BranchPythonOperator): choose_best_model> on 2024-03-13 16:30:04.175947+00:00
+[2024-03-13T16:30:07.385+0000] {standard_task_runner.py:60} INFO - Started process 106 to run task
+[2024-03-13T16:30:07.387+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'choose_best_model', 'manual__2024-03-13T16:30:04.175947+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/my_first_dag.py', '--cfg-path', '/tmp/tmp2ro82b7g']
+[2024-03-13T16:30:07.390+0000] {standard_task_runner.py:88} INFO - Job 27: Subtask choose_best_model
+[2024-03-13T16:30:07.429+0000] {task_command.py:423} INFO - Running <TaskInstance: my_dag.choose_best_model manual__2024-03-13T16:30:04.175947+00:00 [running]> on host 6c349894a55c
+[2024-03-13T16:30:07.490+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='choose_best_model' AIRFLOW_CTX_EXECUTION_DATE='2024-03-13T16:30:04.175947+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-03-13T16:30:04.175947+00:00'
+[2024-03-13T16:30:07.500+0000] {python.py:202} INFO - Done. Returned value was: is_inaccurate
+[2024-03-13T16:30:07.500+0000] {branch.py:35} INFO - Branch into is_inaccurate
+[2024-03-13T16:30:07.501+0000] {skipmixin.py:178} INFO - Following branch is_inaccurate
+[2024-03-13T16:30:07.509+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 234, in execute
+    return self.do_branch(context, super().execute(context))
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/branch.py", line 36, in do_branch
+    self.skip_all_except(context["ti"], branches_to_execute)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/skipmixin.py", line 213, in skip_all_except
+    raise AirflowException(
+airflow.exceptions.AirflowException: 'branch_task_ids' must contain only valid task_ids. Invalid tasks found: {'is_inaccurate'}.
+[2024-03-13T16:30:07.512+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=my_dag, task_id=choose_best_model, execution_date=20240313T163004, start_date=20240313T163007, end_date=20240313T163007
+[2024-03-13T16:30:07.520+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 27 for task choose_best_model ('branch_task_ids' must contain only valid task_ids. Invalid tasks found: {'is_inaccurate'}.; 106)
+[2024-03-13T16:30:07.567+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-03-13T16:30:07.593+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

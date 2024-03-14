@@ -1,0 +1,16 @@
+[2024-03-13T18:38:58.654+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.downloading_data manual__2024-03-13T18:38:57.087795+00:00 [queued]>
+[2024-03-13T18:38:58.659+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.downloading_data manual__2024-03-13T18:38:57.087795+00:00 [queued]>
+[2024-03-13T18:38:58.659+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-13T18:38:58.667+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): downloading_data> on 2024-03-13 18:38:57.087795+00:00
+[2024-03-13T18:38:58.672+0000] {standard_task_runner.py:60} INFO - Started process 180 to run task
+[2024-03-13T18:38:58.675+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'downloading_data', 'manual__2024-03-13T18:38:57.087795+00:00', '--job-id', '88', '--raw', '--subdir', 'DAGS_FOLDER/my_first_dag.py', '--cfg-path', '/tmp/tmpfwg1p12m']
+[2024-03-13T18:38:58.676+0000] {standard_task_runner.py:88} INFO - Job 88: Subtask downloading_data
+[2024-03-13T18:38:58.711+0000] {task_command.py:423} INFO - Running <TaskInstance: my_dag.downloading_data manual__2024-03-13T18:38:57.087795+00:00 [running]> on host b58d4254a693
+[2024-03-13T18:38:58.768+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='downloading_data' AIRFLOW_CTX_EXECUTION_DATE='2024-03-13T18:38:57.087795+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-03-13T18:38:57.087795+00:00'
+[2024-03-13T18:38:58.770+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-03-13T18:38:58.771+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'sleep 3']
+[2024-03-13T18:38:58.781+0000] {subprocess.py:86} INFO - Output:
+[2024-03-13T18:39:01.786+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-03-13T18:39:01.807+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=downloading_data, execution_date=20240313T183857, start_date=20240313T183858, end_date=20240313T183901
+[2024-03-13T18:39:01.848+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-03-13T18:39:01.869+0000] {taskinstance.py:3312} INFO - 3 downstream tasks scheduled from follow-on schedule check
